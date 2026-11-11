@@ -7,6 +7,7 @@ import {
 import heroImg from "@/assets/imageBackground.jpg.asset.json";
 import salonImg from "@/assets/barber1.jpg.asset.json";
 import logoImg from "@/assets/mainLogo.png.asset.json";
+import frontImg from "@/assets/salon-front.jpg.asset.json";
 
 const TITLE = "Κομμώσεις Γιάννης - Λαμπρινή | Κομμωτήριο Αμφιλοχία";
 const DESC = "Κομμωτήριο στην Αμφιλοχία από το 1992. Κούρεμα, ξύρισμα, βαφές, balayage, ανταύγειες και νυφικά χτενίσματα για γυναίκες, άνδρες και παιδιά.";
@@ -203,8 +204,9 @@ function Index() {
       <section id="gallery" className="bg-card py-28">
         <div className="mx-auto max-w-7xl px-6">
           <Heading kicker="Ο χώρος μας" title="Ένας χώρος να χαλαρώσετε" />
-          <div className="grid gap-4 md:grid-cols-3 md:grid-rows-2">
-            <img src={heroImg.url} alt="Εσωτερικό κομμωτηρίου" loading="lazy" className="h-full min-h-72 w-full object-cover md:col-span-2 md:row-span-2" />
+          <div className="grid gap-4 md:grid-cols-4 md:grid-rows-2">
+            <img src={frontImg.url} alt="Η πρόσοψη του κομμωτηρίου Γιάννης - Λαμπρινή στην Αμφιλοχία" loading="lazy" className="h-full min-h-72 w-full object-cover md:col-span-2 md:row-span-2" />
+            <img src={heroImg.url} alt="Εσωτερικό κομμωτηρίου" loading="lazy" className="h-72 w-full object-cover md:col-span-2" />
             <img src={salonImg.url} alt="Θέση κουρέματος" loading="lazy" className="h-72 w-full object-cover" />
             <img src={logoImg.url} alt="Κομμώσεις Γιάννης - Λαμπρινή" loading="lazy" className="h-72 w-full object-cover" />
           </div>
