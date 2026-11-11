@@ -10,7 +10,26 @@ import logoImg from "@/assets/mainLogo.png.asset.json";
 import frontImg from "@/assets/salon-front.jpg.asset.json";
 
 const TITLE = "Κομμώσεις Γιάννης - Λαμπρινή | Κομμωτήριο Αμφιλοχία";
-const DESC = "Κομμωτήριο στην Αμφιλοχία από το 1992. Κούρεμα, ξύρισμα, βαφές, balayage, ανταύγειες και νυφικά χτενίσματα για γυναίκες, άνδρες και παιδιά.";
+const DESC = "Κομμωτήριο στην Αμφιλοχία Αιτωλοακαρνανίας από το 1992. Γυναικείο & ανδρικό κούρεμα, ξύρισμα, βαφές, balayage, ανταύγειες και νυφικά χτενίσματα για γυναίκες, άνδρες και παιδιά.";
+
+const H = (d: string[], o: string, c: string) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: d, opens: o, closes: c });
+const LD = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  name: "Κομμώσεις Γιάννης - Λαμπρινή",
+  description: DESC,
+  telephone: "+302642024164",
+  foundingDate: "1992",
+  priceRange: "€",
+  address: { "@type": "PostalAddress", streetAddress: "Θεοδώρου Χαβίνη", addressLocality: "Αμφιλοχία", postalCode: "30500", addressRegion: "Αιτωλοακαρνανία", addressCountry: "GR" },
+  geo: { "@type": "GeoCoordinates", latitude: 38.86321, longitude: 21.16727 },
+  areaServed: ["Αμφιλοχία", "Αιτωλοακαρνανία"],
+  openingHoursSpecification: [
+    H(["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "09:00", "14:00"),
+    H(["Tuesday","Thursday","Friday"], "17:30", "20:30"),
+  ],
+  hasOfferCatalog: { "@type": "OfferCatalog", name: "Υπηρεσίες κομμωτηρίου", itemListElement: ["Γυναικείο κούρεμα","Ανδρικό κούρεμα","Ξύρισμα","Χτένισμα","Βαφή μαλλιών","Balayage","Ανταύγειες","Νυφικό χτένισμα","Παιδικό κούρεμα"].map((n) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })) },
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,7 +40,15 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:locale", content: "el_GR" },
+      { property: "og:url", content: "/" },
+      { name: "geo.region", content: "GR-AE" },
+      { name: "geo.placename", content: "Αμφιλοχία" },
+      { name: "geo.position", content: "38.86321;21.16727" },
+      { name: "ICBM", content: "38.86321, 21.16727" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(LD) }],
   }),
   component: Index,
 });
@@ -121,9 +148,10 @@ function Index() {
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-primary">Αμφιλοχία · Από το 1992</p>
           <h1 className="font-display text-5xl leading-tight md:text-7xl lg:text-8xl">
             Κομμώσεις<br /><span className="italic text-gold-gradient">Γιάννης - Λαμπρινή</span>
+            <span className="sr-only"> – Κομμωτήριο στην Αμφιλοχία</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            Τρεις δεκαετίες μεράκι, τεχνική και προσωπική φροντίδα για γυναίκες, άνδρες και παιδιά.
+            Κομμωτήριο στην Αμφιλοχία με τρεις δεκαετίες μεράκι, τεχνική και προσωπική φροντίδα για γυναίκες, άνδρες και παιδιά.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a href={`tel:${PHONE}`} className="bg-gold-gradient px-8 py-4 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-transform hover:-translate-y-0.5">Κλείστε Ραντεβού</a>
