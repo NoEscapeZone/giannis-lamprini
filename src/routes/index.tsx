@@ -176,10 +176,6 @@ function Index() {
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div className="relative">
             <img src={storyImg.url} alt="Η πρόσοψη του κομμωτηρίου Γιάννης - Λαμπρινή στην Αμφιλοχία" loading="lazy" className="aspect-square w-full object-cover object-center" />
-            <div className="absolute -bottom-6 -right-6 hidden border border-primary bg-background px-8 py-6 md:block">
-              <div className="font-display text-5xl text-primary">30+</div>
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">χρόνια δίπλα σας</div>
-            </div>
           </div>
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-primary">Η Ιστορία μας</p>
