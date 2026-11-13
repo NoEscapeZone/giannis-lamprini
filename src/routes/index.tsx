@@ -295,14 +295,17 @@ function Index() {
                 <a href="#" aria-label="Instagram" className="flex h-11 w-11 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary"><Instagram className="h-5 w-5" /></a>
               </div>
             </div>
-            <div className="min-h-[450px] overflow-hidden border border-border">
-              <iframe
-                title="Χάρτης"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.375500662283!2d21.165084676646875!3d38.86321057173264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135e9d842431d2b7%3A0x86379595776fc4ad!2s%CE%9A%CE%BF%CE%BC%CE%BC%CF%8E%CF%83%CE%B5%CE%B9%CF%82%20%22%CE%93%CE%B9%CE%AC%CE%BD%CE%BD%CE%B7%CF%82%20-%20%CE%9B%CE%B1%CE%BC%CF%80%CF%81%CE%B9%CE%BD%CE%AE%22!5e0!3m2!1sel!2sgr!4v1715010000000!5m2!1sel!2sgr"
-                className="h-full min-h-[450px] w-full border-0"
-                loading="lazy"
-                allowFullScreen
-              />
+            <div className="flex flex-col">
+              <h4 className="font-display text-2xl">Βρείτε το κατάστημά μας:</h4>
+              <div className="mt-4 min-h-[450px] flex-1 overflow-hidden border border-border">
+                <iframe
+                  title="Χάρτης"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.375500662283!2d21.165084676646875!3d38.86321057173264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135e9d842431d2b7%3A0x86379595776fc4ad!2s%CE%9A%CE%BF%CE%BC%CE%BC%CF%8E%CF%83%CE%B5%CE%B9%CF%82%20%22%CE%93%CE%B9%CE%AC%CE%BD%CE%BD%CE%B7%CF%82%20-%20%CE%9B%CE%B1%CE%BC%CF%80%CF%81%CE%B9%CE%BD%CE%AE%22!5e0!3m2!1sel!2sgr!4v1715010000000!5m2!1sel!2sgr"
+                  className="h-full min-h-[450px] w-full border-0"
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
         </div>
