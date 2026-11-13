@@ -145,7 +145,7 @@ function Index() {
         <img src={heroImg.url} alt="Το κομμωτήριο Γιάννης - Λαμπρινή" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/75" />
         <div className="relative z-10 px-6 text-center">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-primary">Αμφιλοχία · Από το 1992</p>
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.5em] text-primary">{"\n"}</p>
           <h1 className="font-display text-5xl leading-tight md:text-7xl lg:text-8xl">
             Κομμώσεις<br /><span className="italic text-gold-gradient">Γιάννης - Λαμπρινή</span>
             <span className="sr-only"> – Κομμωτήριο στην Αμφιλοχία</span>
