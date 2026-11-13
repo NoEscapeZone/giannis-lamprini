@@ -47,7 +47,14 @@ export const Route = createFileRoute("/")({
       { name: "ICBM", content: "38.86321, 21.16727" },
     ],
     links: [{ rel: "canonical", href: "/" }],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(LD) }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(LD) },
+      { src: "https://www.googletagmanager.com/gtag/js?id=G-ZK278FG7ZN", async: true },
+      {
+        children:
+          "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZK278FG7ZN');",
+      },
+    ],
   }),
   component: Index,
 });
