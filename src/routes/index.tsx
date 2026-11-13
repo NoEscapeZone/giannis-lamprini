@@ -5,9 +5,7 @@ import {
   Facebook, Instagram, Menu, X, Star, Award, Heart, Leaf, ChevronDown,
 } from "lucide-react";
 import heroImg from "@/assets/imageBackground.jpg.asset.json";
-import salonImg from "@/assets/barber1.jpg.asset.json";
-import logoImg from "@/assets/mainLogo.png.asset.json";
-import frontImg from "@/assets/salon-front.jpg.asset.json";
+import storyImg from "@/assets/salon-story.png.asset.json";
 
 const TITLE = "Κομμώσεις Γιάννης - Λαμπρινή | Κομμωτήριο Αμφιλοχία";
 const DESC = "Κομμωτήριο στην Αμφιλοχία Αιτωλοακαρνανίας από το 1992. Γυναικείο & ανδρικό κούρεμα, ξύρισμα, βαφές, balayage, ανταύγειες και νυφικά χτενίσματα για γυναίκες, άνδρες και παιδιά.";
@@ -56,7 +54,7 @@ export const Route = createFileRoute("/")({
 const PHONE = "2642024164";
 const nav = [
   ["#home", "Αρχική"], ["#about", "Σχετικά"], ["#services", "Υπηρεσίες"],
-  ["#gallery", "Χώρος"], ["#reviews", "Κριτικές"], ["#faq", "Ερωτήσεις"], ["#contact", "Επικοινωνία"],
+  ["#reviews", "Κριτικές"], ["#faq", "Ερωτήσεις"], ["#contact", "Επικοινωνία"],
 ];
 
 const services = [
@@ -177,7 +175,7 @@ function Index() {
       <section id="about" className="mx-auto max-w-7xl px-6 py-28">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div className="relative">
-            <img src={salonImg.url} alt="Καρέκλα κομμωτηρίου" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+            <img src={storyImg.url} alt="Η πρόσοψη του κομμωτηρίου Γιάννης - Λαμπρινή στην Αμφιλοχία" loading="lazy" className="aspect-square w-full object-cover object-center" />
             <div className="absolute -bottom-6 -right-6 hidden border border-primary bg-background px-8 py-6 md:block">
               <div className="font-display text-5xl text-primary">30+</div>
               <div className="text-xs uppercase tracking-widest text-muted-foreground">χρόνια δίπλα σας</div>
@@ -225,19 +223,6 @@ function Index() {
               <p className="mt-3 text-sm text-muted-foreground">{d}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section id="gallery" className="bg-card py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <Heading kicker="Ο χώρος μας" title="Ένας χώρος να χαλαρώσετε" />
-          <div className="grid gap-4 md:grid-cols-4 md:grid-rows-2">
-            <img src={frontImg.url} alt="Η πρόσοψη του κομμωτηρίου Γιάννης - Λαμπρινή στην Αμφιλοχία" loading="lazy" className="h-full min-h-72 w-full object-cover md:col-span-2 md:row-span-2" />
-            <img src={heroImg.url} alt="Εσωτερικό κομμωτηρίου" loading="lazy" className="h-72 w-full object-cover md:col-span-2" />
-            <img src={salonImg.url} alt="Θέση κουρέματος" loading="lazy" className="h-72 w-full object-cover" />
-            <img src={logoImg.url} alt="Κομμώσεις Γιάννης - Λαμπρινή" loading="lazy" className="h-72 w-full object-cover" />
-          </div>
         </div>
       </section>
 
