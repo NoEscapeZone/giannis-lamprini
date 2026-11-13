@@ -149,7 +149,7 @@ function Index() {
             <span className="sr-only"> – Κομμωτήριο στην Αμφιλοχία</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            Κομμωτήριο στην Αμφιλοχία με τρεις δεκαετίες μεράκι, τεχνική και προσωπική φροντίδα για γυναίκες, άνδρες και παιδιά.
+            Κομμωτήριο στην Αμφιλοχία με τρεις δεκαετίες εμπειρίας, τεχνική και προσωπική φροντίδα για γυναίκες, άνδρες και παιδιά.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a href={`tel:${PHONE}`} className="bg-gold-gradient px-8 py-4 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-transform hover:-translate-y-0.5">Κλείστε Ραντεβού</a>
