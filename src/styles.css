@@ -120,6 +120,17 @@
 
 html { scroll-behavior: smooth; }
 
+.salon-hero {
+  min-height: calc(100vh - 48px);
+  min-height: calc(100svh - 48px);
+}
+
+section[id] { scroll-margin-top: 88px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 @utility text-gold-gradient {
   background: var(--gradient-gold);
   -webkit-background-clip: text;
@@ -133,4 +144,8 @@ html { scroll-behavior: smooth; }
 @layer base {
   * { border-color: var(--color-border); }
   body { background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); }
+  body { line-height: 1.6; }
+  a, button { touch-action: manipulation; }
+  a:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+  * { letter-spacing: 0; }
 }

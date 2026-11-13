@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Presentation rules
+- Use small-viewport height units with a vh fallback for the main cover, grid-based mobile header and schedule rows, and at least 44px touch controls to avoid browser-bar shifts and cramped mobile interactions.
