@@ -4,8 +4,8 @@ import {
   Scissors, Wind, Palette, Sparkles, Sun, Crown, Baby, Droplets, Phone, MapPin, Clock,
   Facebook, Instagram, Menu, X, Star, Award, Heart, Leaf, ChevronDown,
 } from "lucide-react";
-import heroImg from "@/assets/imageBackground.jpg.asset.json";
-import storyImg from "@/assets/salon-story.png.asset.json";
+import heroImg from "@/assets/hero.webp.asset.json";
+import storyImg from "@/assets/salon-story.webp.asset.json";
 import { Button } from "@/components/ui/button";
 
 const TITLE = "Κομμώσεις Γιάννης - Λαμπρινή | Κομμωτήριο Αμφιλοχία";
@@ -16,6 +16,11 @@ const LD = {
   "@context": "https://schema.org",
   "@type": "HairSalon",
   name: "Κομμώσεις Γιάννης - Λαμπρινή",
+  "@id": "https://giannis-lamprini.lovable.app/#salon",
+  url: "https://giannis-lamprini.lovable.app/",
+  image: "https://giannis-lamprini.lovable.app" + storyImg.url,
+  hasMap: "https://www.google.com/maps/search/?api=1&query=Κομμώσεις+Γιάννης+Λαμπρινή+Αμφιλοχία",
+  knowsLanguage: "el",
   description: DESC,
   telephone: "+302642024164",
   foundingDate: "1992",
@@ -40,13 +45,19 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:locale", content: "el_GR" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://giannis-lamprini.lovable.app/" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "keywords", content: "κομμωτήριο Αμφιλοχία, κομμωτήριο στην Αμφιλοχία, κουρείο Αμφιλοχία, κομμώσεις Αμφιλοχία, balayage Αμφιλοχία, βαφή μαλλιών Αμφιλοχία, νυφικό χτένισμα Αμφιλοχία, Αιτωλοακαρνανία" },
       { name: "geo.region", content: "GR-AE" },
       { name: "geo.placename", content: "Αμφιλοχία" },
       { name: "geo.position", content: "38.86321;21.16727" },
       { name: "ICBM", content: "38.86321, 21.16727" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "https://giannis-lamprini.lovable.app/" },
+      { rel: "preload", as: "image", href: heroImg.url, type: "image/webp", fetchPriority: "high" },
+      { rel: "preconnect", href: "https://www.googletagmanager.com" },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(LD) },
       { src: "https://www.googletagmanager.com/gtag/js?id=G-ZK278FG7ZN", async: true },
@@ -148,7 +159,7 @@ function Index() {
 
       {/* Hero */}
       <section id="home" className="salon-hero relative flex items-center justify-center overflow-hidden pb-16 pt-24 sm:pb-20 sm:pt-28">
-        <img src={heroImg.url} alt="Το κομμωτήριο Γιάννης - Λαμπρινή" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImg.url} alt="Το κομμωτήριο Γιάννης - Λαμπρινή" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" decoding="async" width={1280} height={1920} />
         <div className="absolute inset-0 bg-background/75" />
         <div className="relative z-10 w-full max-w-6xl px-5 text-center sm:px-6">
           <h1 className="font-display text-4xl leading-tight sm:text-5xl md:text-7xl lg:text-8xl">
@@ -171,7 +182,7 @@ function Index() {
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-5 py-8 text-center sm:px-6 md:grid-cols-4 md:gap-8 md:py-12">
           {[["1992", "Έτος ίδρυσης"], ["30+", "Χρόνια εμπειρίας"], ["8", "Υπηρεσίες"], ["100%", "Μεράκι"]].map(([n, l]) => (
             <div key={l}>
-              <div className="font-display text-4xl text-gold-gradient md:text-5xl">{n}</div>
+              <div className="font-sans text-4xl font-semibold tabular-nums tracking-tight text-gold-gradient md:text-5xl">{n}</div>
               <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{l}</div>
             </div>
           ))}
@@ -182,7 +193,7 @@ function Index() {
       <section id="about" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 md:py-28">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative">
-            <img src={storyImg.url} alt="Η πρόσοψη του κομμωτηρίου Γιάννης - Λαμπρινή στην Αμφιλοχία" loading="lazy" className="aspect-[5/4] w-full object-cover object-center lg:aspect-square" />
+            <img src={storyImg.url} alt="Η πρόσοψη του κομμωτηρίου Γιάννης - Λαμπρινή στην Αμφιλοχία" loading="lazy" decoding="async" width={1000} height={801} className="aspect-[5/4] w-full object-cover object-center lg:aspect-square" />
           </div>
           <div>
             <p className="mb-3 text-xs font-semibold uppercase text-primary">Η Ιστορία μας</p>
@@ -245,7 +256,7 @@ function Index() {
 
       {/* CTA */}
       <section className="relative overflow-hidden py-16 md:py-24">
-        <img src={heroImg.url} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImg.url} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/85" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Έτοιμοι για μια <span className="italic text-primary">νέα εμφάνιση;</span></h2>
