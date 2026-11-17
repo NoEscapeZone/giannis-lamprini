@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 const TITLE = "Κομμώσεις Γιάννης - Λαμπρινή | Κομμωτήριο Αμφιλοχία";
 const DESC = "Κομμωτήριο στην Αμφιλοχία Αιτωλοακαρνανίας από το 1992. Γυναικείο & ανδρικό κούρεμα, ξύρισμα, βαφές, balayage, ανταύγειες και νυφικά χτενίσματα για γυναίκες, άνδρες και παιδιά.";
 
+const MAPS_URL = "https://maps.app.goo.gl/DdbRDCy2Tv3Zb";
 const H = (d: string[], o: string, c: string) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: d, opens: o, closes: c });
 const LD = {
   "@context": "https://schema.org",
@@ -19,7 +20,8 @@ const LD = {
   "@id": "https://giannis-lamprini.lovable.app/#salon",
   url: "https://giannis-lamprini.lovable.app/",
   image: "https://giannis-lamprini.lovable.app" + storyImg.url,
-  hasMap: "https://www.google.com/maps/search/?api=1&query=Κομμώσεις+Γιάννης+Λαμπρινή+Αμφιλοχία",
+  hasMap: MAPS_URL,
+  sameAs: [MAPS_URL],
   knowsLanguage: "el",
   description: DESC,
   telephone: "+302642024164",
@@ -322,6 +324,15 @@ function Index() {
                   allowFullScreen
                 />
               </div>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                <MapPin className="h-4 w-4" />
+                Άνοιγμα στο Google Maps
+              </a>
             </div>
           </div>
         </div>
