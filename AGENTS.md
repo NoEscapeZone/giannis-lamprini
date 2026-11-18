@@ -31,3 +31,7 @@ use the editor.
 
 ## Presentation rules
 - Use small-viewport height units with a vh fallback for the main cover, grid-based mobile header and schedule rows, and at least 44px touch controls to avoid browser-bar shifts and cramped mobile interactions.
+
+## External hosting
+- Resolve displayed asset pointers through `src/lib/site-media.ts` to a verified public HTTPS asset origin; external hosts do not implement Lovable's relative asset endpoint.
+- Use the embedded map's Google place identifier for outbound Maps links so expired short links cannot break navigation.

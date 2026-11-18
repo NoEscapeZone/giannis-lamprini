@@ -4,14 +4,12 @@ import {
   Scissors, Wind, Palette, Sparkles, Sun, Crown, Baby, Droplets, Phone, MapPin, Clock,
   Facebook, Instagram, Menu, X, Star, Award, Heart, Leaf, ChevronDown,
 } from "lucide-react";
-import heroImg from "@/assets/hero.webp.asset.json";
-import storyImg from "@/assets/salon-story.webp.asset.json";
+import { HERO_IMAGE_URL, STORY_IMAGE_URL, MAPS_URL } from "@/lib/site-media";
 import { Button } from "@/components/ui/button";
 
 const TITLE = "Κομμώσεις Γιάννης - Λαμπρινή | Κομμωτήριο Αμφιλοχία";
 const DESC = "Κομμωτήριο στην Αμφιλοχία Αιτωλοακαρνανίας από το 1992. Γυναικείο & ανδρικό κούρεμα, ξύρισμα, βαφές, balayage, ανταύγειες και νυφικά χτενίσματα για γυναίκες, άνδρες και παιδιά.";
 
-const MAPS_URL = "https://maps.app.goo.gl/DdbRDCy2Tv3Zb";
 const H = (d: string[], o: string, c: string) => ({ "@type": "OpeningHoursSpecification", dayOfWeek: d, opens: o, closes: c });
 const LD = {
   "@context": "https://schema.org",
@@ -19,7 +17,7 @@ const LD = {
   name: "Κομμώσεις Γιάννης - Λαμπρινή",
   "@id": "https://giannis-lamprini.lovable.app/#salon",
   url: "https://giannis-lamprini.lovable.app/",
-  image: "https://giannis-lamprini.lovable.app" + storyImg.url,
+  image: STORY_IMAGE_URL,
   hasMap: MAPS_URL,
   sameAs: [MAPS_URL],
   knowsLanguage: "el",
@@ -46,6 +44,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: HERO_IMAGE_URL },
+      { name: "twitter:image", content: HERO_IMAGE_URL },
       { property: "og:locale", content: "el_GR" },
       { property: "og:url", content: "https://giannis-lamprini.lovable.app/" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
@@ -57,7 +57,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://giannis-lamprini.lovable.app/" },
-      { rel: "preload", as: "image", href: heroImg.url, type: "image/webp", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: HERO_IMAGE_URL, type: "image/webp", fetchPriority: "high" },
       { rel: "preconnect", href: "https://www.googletagmanager.com" },
     ],
     scripts: [
@@ -161,7 +161,7 @@ function Index() {
 
       {/* Hero */}
       <section id="home" className="salon-hero relative flex items-center justify-center overflow-hidden pb-16 pt-24 sm:pb-20 sm:pt-28">
-        <img src={heroImg.url} alt="Το κομμωτήριο Γιάννης - Λαμπρινή" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" decoding="async" width={1280} height={1920} />
+        <img src={HERO_IMAGE_URL} alt="Το κομμωτήριο Γιάννης - Λαμπρινή" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" decoding="async" width={1280} height={1920} />
         <div className="absolute inset-0 bg-background/75" />
         <div className="relative z-10 w-full max-w-6xl px-5 text-center sm:px-6">
           <h1 className="font-display text-4xl leading-tight sm:text-5xl md:text-7xl lg:text-8xl">
@@ -195,7 +195,7 @@ function Index() {
       <section id="about" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 md:py-28">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative">
-            <img src={storyImg.url} alt="Η πρόσοψη του κομμωτηρίου Γιάννης - Λαμπρινή στην Αμφιλοχία" loading="lazy" decoding="async" width={1000} height={801} className="aspect-[5/4] w-full object-cover object-center lg:aspect-square" />
+            <img src={STORY_IMAGE_URL} alt="Η πρόσοψη του κομμωτηρίου Γιάννης - Λαμπρινή στην Αμφιλοχία" loading="lazy" decoding="async" width={1000} height={801} className="aspect-[5/4] w-full object-cover object-center lg:aspect-square" />
           </div>
           <div>
             <p className="mb-3 text-xs font-semibold uppercase text-primary">Η Ιστορία μας</p>
@@ -258,7 +258,7 @@ function Index() {
 
       {/* CTA */}
       <section className="relative overflow-hidden py-16 md:py-24">
-        <img src={heroImg.url} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={HERO_IMAGE_URL} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/85" />
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Έτοιμοι για μια <span className="italic text-primary">νέα εμφάνιση;</span></h2>
@@ -324,15 +324,14 @@ function Index() {
                   allowFullScreen
                 />
               </div>
-              <a
+              <Button asChild variant="outline" className="mt-4 h-auto min-h-11 rounded-none border-primary px-6 py-3 text-primary hover:bg-primary hover:text-primary-foreground"><a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 <MapPin className="h-4 w-4" />
                 Άνοιγμα στο Google Maps
-              </a>
+              </a></Button>
             </div>
           </div>
         </div>
