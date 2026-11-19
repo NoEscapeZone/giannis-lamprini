@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://giannis-lamprini.lovable.app/sitemap.xml
+Sitemap: https://giannis-lamprini.netlify.app/sitemap.xml

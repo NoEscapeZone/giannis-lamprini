@@ -35,3 +35,5 @@ use the editor.
 ## External hosting
 - Resolve displayed asset pointers through `src/lib/site-media.ts` to a verified public HTTPS asset origin; external hosts do not implement Lovable's relative asset endpoint.
 - Use the embedded map's Google place identifier for outbound Maps links so expired short links cannot break navigation.
+- Centralize public SEO URLs in `src/lib/site-config.ts` and keep static crawler files aligned to prevent divergent origins.
+- Normalize hosting-injected head whitespace with `ScriptOnce` before hydration; preserve all metadata, comments and scripts rather than suppressing hydration errors.

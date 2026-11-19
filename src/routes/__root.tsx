@@ -6,12 +6,14 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  ScriptOnce,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { NORMALIZE_HOST_HEAD } from "../lib/site-config";
 
 function NotFoundComponent() {
   return (
@@ -110,6 +112,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="el">
       <head>
         <HeadContent />
+        <ScriptOnce>{NORMALIZE_HOST_HEAD}</ScriptOnce>
       </head>
       <body>
         {children}

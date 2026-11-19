@@ -2,10 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Scissors, Wind, Palette, Sparkles, Sun, Crown, Baby, Droplets, Phone, MapPin, Clock,
-  Facebook, Instagram, Menu, X, Star, Award, Heart, Leaf, ChevronDown,
+  Menu, X, Star, Award, Heart, Leaf, ChevronDown,
 } from "lucide-react";
 import { HERO_IMAGE_URL, STORY_IMAGE_URL, MAPS_URL } from "@/lib/site-media";
 import { Button } from "@/components/ui/button";
+import { SITE_URL } from "@/lib/site-config";
 
 const TITLE = "Κομμώσεις Γιάννης - Λαμπρινή | Κομμωτήριο Αμφιλοχία";
 const DESC = "Κομμωτήριο στην Αμφιλοχία Αιτωλοακαρνανίας από το 1992. Γυναικείο & ανδρικό κούρεμα, ξύρισμα, βαφές, balayage, ανταύγειες και νυφικά χτενίσματα για γυναίκες, άνδρες και παιδιά.";
@@ -15,8 +16,8 @@ const LD = {
   "@context": "https://schema.org",
   "@type": "HairSalon",
   name: "Κομμώσεις Γιάννης - Λαμπρινή",
-  "@id": "https://giannis-lamprini.lovable.app/#salon",
-  url: "https://giannis-lamprini.lovable.app/",
+  "@id": `${SITE_URL}#salon`,
+  url: SITE_URL,
   image: STORY_IMAGE_URL,
   hasMap: MAPS_URL,
   sameAs: [MAPS_URL],
@@ -47,7 +48,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: HERO_IMAGE_URL },
       { name: "twitter:image", content: HERO_IMAGE_URL },
       { property: "og:locale", content: "el_GR" },
-      { property: "og:url", content: "https://giannis-lamprini.lovable.app/" },
+      { property: "og:url", content: SITE_URL },
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "keywords", content: "κομμωτήριο Αμφιλοχία, κομμωτήριο στην Αμφιλοχία, κουρείο Αμφιλοχία, κομμώσεις Αμφιλοχία, balayage Αμφιλοχία, βαφή μαλλιών Αμφιλοχία, νυφικό χτένισμα Αμφιλοχία, Αιτωλοακαρνανία" },
       { name: "geo.region", content: "GR-AE" },
@@ -56,7 +57,7 @@ export const Route = createFileRoute("/")({
       { name: "ICBM", content: "38.86321, 21.16727" },
     ],
     links: [
-      { rel: "canonical", href: "https://giannis-lamprini.lovable.app/" },
+      { rel: "canonical", href: SITE_URL },
       { rel: "preload", as: "image", href: HERO_IMAGE_URL, type: "image/webp", fetchPriority: "high" },
       { rel: "preconnect", href: "https://www.googletagmanager.com" },
     ],
@@ -307,10 +308,6 @@ function Index() {
                     ))}
                   </ul>
                 </div>
-              </div>
-              <div className="flex gap-4 pl-11">
-                <a href="#" aria-label="Facebook" className="flex h-11 w-11 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary"><Facebook className="h-5 w-5" /></a>
-                <a href="#" aria-label="Instagram" className="flex h-11 w-11 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary"><Instagram className="h-5 w-5" /></a>
               </div>
             </div>
             <div className="flex min-w-0 flex-col">
